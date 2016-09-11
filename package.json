@@ -1,0 +1,41 @@
+{
+  "name": "gpmdp-plugin-now-playing-text-file",
+  "version": "1.0.0",
+  "description": "",
+  "main": "dist.js",
+  "scripts": {
+    "build": "npm run transpile && npm run bundle",
+    "bundle": "browserify build/index.js -o dist.js --no-builtins --standalone now-playing-text-file",
+    "lint": "eslint src",
+    "start": "node install.js",
+    "transpile": "babel src --out-dir build",
+    "test": "npm run lint",
+    "watch": "npm run build && npm-watch"
+  },
+  "watch": {
+    "build": "src/**/*.js",
+    "start": "dist.js"
+  },
+  "author": {
+    "name": "Samuel Attard"
+  },
+  "license": "MIT",
+  "devDependencies": {
+    "babel-cli": "^6.14.0",
+    "babel-plugin-transform-class-properties": "^6.11.5",
+    "babel-preset-es2015": "^6.14.0",
+    "browserify": "^13.1.0",
+    "eslint": "^3.5.0",
+    "eslint-config-airbnb-base": "^7.0.1",
+    "eslint-plugin-import": "^1.14.0",
+    "ws": "^1.1.1"
+  },
+  "babel": {
+    "presets": [
+      "es2015"
+    ],
+    "plugins": [
+      "transform-class-properties"
+    ]
+  }
+}
